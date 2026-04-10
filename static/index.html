@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supply Chain Simulation</title>
+    <link rel="stylesheet" href="/static/style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Supply Chain Live <span>Telemetry</span></h1>
+            <div class="header-controls">
+                <button id="db-btn" onclick="showDatabase()" class="secondary">Show Database</button>
+                <button id="start-btn" onclick="startSimulation()">Start Simulation</button>
+            </div>
+        </header>
+
+        <div class="control-panel panel">
+            <div class="control-group">
+                <h3>Add New Item</h3>
+                <input type="text" id="add-name" placeholder="Item Name">
+                <input type="number" id="add-qty" placeholder="Quantity">
+                <button onclick="addItem()">Add Item</button>
+            </div>
+            <div class="control-group">
+                <h3>Delete Item</h3>
+                <input type="text" id="del-name" placeholder="Item Name">
+                <button onclick="deleteItem()" class="danger-btn">Delete</button>
+            </div>
+        </div>
+
+        <main class="dashboard">
+            <div class="panel inventory-panel">
+                <h2>Live Inventory</h2>
+                <div id="inventory-grid" class="grid-layout">
+                    <!-- Stock items injected here -->
+                </div>
+            </div>
+
+            <div class="side-panels">
+                <div class="panel reorder-panel">
+                    <h2>Priority Reorder Queue</h2>
+                    <div id="queue-list" class="list-layout">
+                        <!-- Queue items injected here -->
+                    </div>
+                </div>
+
+                <div class="panel logs-panel">
+                    <h2>System Event Logs</h2>
+                    <div id="logs-container" class="terminal-layout">
+                        <!-- Logs injected here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="db-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeDatabase()">&times;</span>
+                <h2>Database Viewer</h2>
+                <div class="modal-tabs">
+                    <button class="tab-btn active" onclick="switchDbTab('inventory', event)">Inventory</button>
+                    <button class="tab-btn" onclick="switchDbTab('orders', event)">Orders</button>
+                    <button class="tab-btn" onclick="switchDbTab('logs', event)">Logs</button>
+                </div>
+                <div id="db-view-container" class="db-tables">
+                    <!-- Tables injected here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="summary-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeSummary()">&times;</span>
+                <h2>Simulation Ended - Complete Summary</h2>
+                <div id="summary-view-container" class="db-tables">
+                    <!-- Summary table injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/app.js?v=2"></script>
+</body>
+</html>
