@@ -231,6 +231,12 @@ h2::before {
 .secondary { background: rgba(255, 255, 255, 0.1); color: var(--text-main); box-shadow: none; border: 1px solid var(--border-color); }
 .secondary:hover { background: rgba(255, 255, 255, 0.2); transform: none; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
 
+.project-details-content { max-width: 900px; }
+.project-details-section p, .project-details-section ul { margin-bottom: 1rem; line-height: 1.7; color: #d9d9e0; }
+.project-details-section h3 { margin-top: 1.2rem; color: var(--accent); }
+.project-details-section ul { padding-left: 1.3rem; }
+.project-details-section li { margin-bottom: 0.75rem; }
+
 /* Control Panel */
 .control-panel {
     display: flex; gap: 3rem; margin-bottom: 2rem;
